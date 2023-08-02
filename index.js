@@ -57,7 +57,6 @@ function parseCSS(css) {
 	const ruleRegexp = /\s*((?:[\d #.:>A-Za-z]+|\*))\s*{(.*?)}\s*/s
 	const rules = []
 	while (css.length > 0) {
-		console.log('ok', css)
 		const selector = ruleRegexp.exec(css)[1].trim()
 		let properties = ruleRegexp.exec(css)[2].trim()
 		if (properties.endsWith(';')) properties = properties.slice(0, -1)
