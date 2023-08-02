@@ -1,6 +1,6 @@
 {
 	"name": "@besties/html2png",
-	"version": "0.1.4",
+	"version": "0.1.5",
 	"description": "Convert HTML and CSS to a PNG instantly",
 	"main": "index.js",
 	"scripts": {
@@ -17,12 +17,12 @@
 	"private": false,
 	"devDependencies": {
 		"eslint": "^8.46.0",
+		"eslint-config-prettier": "^8.9.0",
 		"eslint-plugin-unicorn": "^48.0.1",
 		"prettier": "^3.0.0"
 	},
 	"dependencies": {
 		"@resvg/resvg-wasm": "^2.4.1",
-		"eslint-config-prettier": "^8.9.0",
 		"node-html-parser": "^6.1.5",
 		"satori": "^0.10.2"
 	}
