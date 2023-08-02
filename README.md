@@ -3,6 +3,12 @@
 ```js
 import html2png from '@besties/html2png'
 
+const figtreeRegular = fs.readFileSync('./assets/fonts/Figtree-Regular.woff')
+const figtreeMedium = fs.readFileSync('./assets/fonts/Figtree-Medium.woff')
+const figtreeExtraBold = fs.readFileSync(
+	'./assets/fonts/Figtree-ExtraBold.woff'
+)
+
 fs.promises.writeFile(
 	'test.png',
 	await html2png(
@@ -54,7 +60,29 @@ fs.promises.writeFile(
 			border-radius: 100%;
 			width: 120px;
 			height: 120px;
-		}`
+		}`,
+		{
+			fonts: [
+				{
+					name: 'Figtree',
+					data: figtreeRegular,
+					weight: 400,
+					style: 'normal'
+				},
+				{
+					name: 'Figtree',
+					data: figtreeMedium,
+					weight: 500,
+					style: 'normal'
+				},
+				{
+					name: 'Figtree',
+					data: figtreeExtraBold,
+					weight: 800,
+					style: 'normal'
+				}
+			]
+		}
 	)
 )
 ```

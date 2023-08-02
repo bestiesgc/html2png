@@ -5,10 +5,6 @@ import satori from 'satori'
 
 await initWasm(fs.readFileSync('node_modules/@resvg/resvg-wasm/index_bg.wasm'))
 
-const figtreeRegular = fs.readFileSync('./fonts/Figtree-Regular.woff')
-const figtreeMedium = fs.readFileSync('./fonts/Figtree-Medium.woff')
-const figtreeExtraBold = fs.readFileSync('./fonts/Figtree-ExtraBold.woff')
-
 function typedarrayToBuffer(arr) {
 	return ArrayBuffer.isView(arr)
 		? // To avoid a copy, use the typed array's underlying ArrayBuffer to back
@@ -70,8 +66,11 @@ function parseCSS(css) {
 export default async function render(
 	html,
 	css,
-	options = { width: 1200, height: 600 }
+	options
 ) {
+	options = options ?? {}
+	if (!options.width) options.width = 1200
+	if (!options.height) options.height = 600
 	const parsedCss = parseCSS(css)
 	const root = parse(html)
 	for (let key of Object.keys(parsedCss)) {
@@ -87,26 +86,7 @@ export default async function render(
 	const svg = await satori(htmlObjects, {
 		width: options.width,
 		height: options.height,
-		fonts: options.fonts ?? [
-			{
-				name: 'Figtree',
-				data: figtreeRegular,
-				weight: 400,
-				style: 'normal'
-			},
-			{
-				name: 'Figtree',
-				data: figtreeMedium,
-				weight: 500,
-				style: 'normal'
-			},
-			{
-				name: 'Figtree',
-				data: figtreeExtraBold,
-				weight: 800,
-				style: 'normal'
-			}
-		]
+		fonts: options.fonts
 	})
 	const resvgJs = new Resvg(svg)
 	const pngBuffer = resvgJs.render().asPng()
