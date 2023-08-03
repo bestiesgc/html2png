@@ -3,8 +3,15 @@ import { Resvg, initWasm } from '@resvg/resvg-wasm'
 import fs from 'node:fs'
 import satori from 'satori'
 import { minify } from 'html-minifier'
-import { resolve } from 'import-meta-resolve'
 import { fileURLToPath } from 'node:url'
+
+async function getResolve() {
+	if (import.meta.resolve) return import.meta.resolve
+	const { resolve } = await import('import-meta-resolve')
+	return (...arguments_) => fileURLToPath(resolve(...arguments_))
+}
+
+const resolve = await getResolve()
 
 const minifyOptions = {
 	collapseWhitespace: true
@@ -12,7 +19,7 @@ const minifyOptions = {
 
 await initWasm(
 	fs.readFileSync(
-		fileURLToPath(resolve('@resvg/resvg-wasm/index_bg.wasm', import.meta.url))
+		await resolve('@resvg/resvg-wasm/index_bg.wasm', import.meta.url)
 	)
 )
 

@@ -1,6 +1,6 @@
 {
 	"name": "@besties/html2png",
-	"version": "0.1.8",
+	"version": "0.1.9",
 	"description": "Convert HTML and CSS to a PNG instantly",
 	"main": "index.js",
 	"scripts": {
