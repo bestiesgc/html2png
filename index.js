@@ -71,7 +71,7 @@ function parseElement(element) {
 }
 
 function parseCSS(css) {
-	const ruleRegexp = /\s*([\d #*.:>A-Za-z-]+)\s*{(.*?)}\s*/s
+	const ruleRegexp = /\s*([\d#*.:>A-Za-z-][\d\s#()*,.:>A-Za-z-]*)\s*{(.*?)}\s*/s
 	const rules = []
 	while (css.length > 0) {
 		const regexpExec = ruleRegexp.exec(css)
