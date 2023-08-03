@@ -3,12 +3,18 @@ import { Resvg, initWasm } from '@resvg/resvg-wasm'
 import fs from 'node:fs'
 import satori from 'satori'
 import { minify } from 'html-minifier'
+import { resolve } from 'import-meta-resolve'
+import { fileURLToPath } from 'node:url'
 
 const minifyOptions = {
 	collapseWhitespace: true
 }
 
-await initWasm(fs.readFileSync('node_modules/@resvg/resvg-wasm/index_bg.wasm'))
+await initWasm(
+	fs.readFileSync(
+		fileURLToPath(resolve('@resvg/resvg-wasm/index_bg.wasm', import.meta.url))
+	)
+)
 
 function typedarrayToBuffer(array) {
 	return ArrayBuffer.isView(array)
