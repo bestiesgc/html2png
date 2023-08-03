@@ -1,6 +1,6 @@
 {
 	"name": "@besties/html2png",
-	"version": "0.1.5",
+	"version": "0.1.6",
 	"description": "Convert HTML and CSS to a PNG instantly",
 	"main": "index.js",
 	"scripts": {
@@ -23,6 +23,7 @@
 	},
 	"dependencies": {
 		"@resvg/resvg-wasm": "^2.4.1",
+		"html-minifier": "^4.0.0",
 		"node-html-parser": "^6.1.5",
 		"satori": "^0.10.2"
 	}

@@ -2,6 +2,11 @@ import { parse } from 'node-html-parser'
 import { Resvg, initWasm } from '@resvg/resvg-wasm'
 import fs from 'node:fs'
 import satori from 'satori'
+import { minify } from 'html-minifier'
+
+const minifyOptions = {
+	collapseWhitespace: true
+}
 
 await initWasm(fs.readFileSync('node_modules/@resvg/resvg-wasm/index_bg.wasm'))
 
@@ -68,7 +73,7 @@ function parseCSS(css) {
 
 export function renderHtml(html, css) {
 	const parsedCss = parseCSS(css)
-	const root = parse(html)
+	const root = parse(minify(html, minifyOptions))
 	for (const key of Object.keys(parsedCss)) {
 		const classRules = parsedCss[key]
 		for (const element of root.querySelectorAll(key)) {
