@@ -18,7 +18,7 @@ const minifyOptions = {
 }
 
 await initWasm(
-	fs.readFileSync(
+	await fs.promises.readFile(
 		await resolve('@resvg/resvg-wasm/index_bg.wasm', import.meta.url)
 	)
 )
