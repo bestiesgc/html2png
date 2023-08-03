@@ -118,6 +118,14 @@ export default async function render(html, css, options) {
 		height: options.height,
 		fonts: options.fonts
 	})
+	if (options.format && options.format == 'svg') {
+		// assuming the width / height is on the <svg>,
+		// remove that, cause we already have the viewBox anyways
+		return svg.replace(
+			`width="${options.width}" height="${options.height}"`,
+			''
+		)
+	}
 	const resvgJs = new Resvg(svg)
 	const pngBuffer = resvgJs.render().asPng()
 	return typedarrayToBuffer(pngBuffer)
