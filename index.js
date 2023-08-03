@@ -40,7 +40,7 @@ function styleStringToObject(style) {
 
 function parseElement(element) {
 	if (element.nodeType != 1) {
-		return element._rawText
+		return element.textContent
 	}
 	const result = {
 		type: element.rawTagName,
