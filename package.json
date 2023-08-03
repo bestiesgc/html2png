@@ -15,6 +15,11 @@
 	"author": "hazycora",
 	"license": "UNLICENSED",
 	"private": false,
+	"homepage": "https://git.gay/besties/html2png",
+	"repository": {
+		"type": "git",
+		"url": "https://git.gay/besties/html2png.git"
+	},
 	"devDependencies": {
 		"eslint": "^8.46.0",
 		"eslint-config-prettier": "^8.9.0",
