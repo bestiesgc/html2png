@@ -1,6 +1,6 @@
 # @besties/html2png
 
-A wrapper for [satori](https://www.npmjs.com/package/satori) and [@resvg/resvg-wasm](https://www.npmjs.com/package/@resvg/resvg-wasm), adding support for specifying classes for elements by inlining all CSS.
+A wrapper for [satori](https://www.npmjs.com/package/satori) and [@resvg/resvg-wasm](https://www.npmjs.com/package/@resvg/resvg-wasm), adding support for using HTML strings rather than VDOM along with specifying classes for elements by inlining all CSS.
 
 ## Usage
 

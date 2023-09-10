@@ -1,7 +1,7 @@
 {
 	"name": "@besties/html2png",
-	"version": "0.2.0",
-	"description": "Convert HTML and CSS to a PNG instantly",
+	"version": "1.0.0",
+	"description": "Convert HTML to a PNG without a headless browser",
 	"main": "index.js",
 	"scripts": {
 		"lint": "prettier --check . && eslint .",
