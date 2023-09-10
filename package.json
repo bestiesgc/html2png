@@ -28,9 +28,10 @@
 	},
 	"dependencies": {
 		"@resvg/resvg-wasm": "^2.4.1",
-		"html-minifier": "^4.0.0",
+		"html-entities": "^2.4.0",
 		"import-meta-resolve": "^3.0.0",
 		"node-html-parser": "^6.1.5",
-		"satori": "^0.10.2"
+		"satori": "^0.10.2",
+		"ultrahtml": "^1.4.0"
 	}
 }
